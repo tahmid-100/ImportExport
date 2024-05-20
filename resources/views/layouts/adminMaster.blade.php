@@ -177,7 +177,7 @@
                         </a>
                     </li>
                     <li class="list">
-                        <a  class="nav-link">
+                        <a href="{{ route('products.index') }}" class="nav-link">
                             <i class="bx bx-box icon"></i>
                             <span class="link">Product</span>
                         </a>
