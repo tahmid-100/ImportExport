@@ -9,6 +9,7 @@ use App\Http\Middleware\AdminAuthenticate;
 use App\Http\Middleware\CheckRole;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
   Route::post('/products', [ProductController::class, 'store'])->name('products.store');
   Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
   Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+  // In your routes file (web.php)
+Route::get('/customers', [AdminController::class, 'showCustomers'])->name('admin.customers');
+Route::delete('/customers/{id}', [AdminController::class, 'destroy'])->name('customers.destroy');
+
 });
 
 

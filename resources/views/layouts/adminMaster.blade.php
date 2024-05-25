@@ -189,13 +189,13 @@
                         </a>
                     </li>
                     <li class="list">
-                        <a  class="nav-link">
+                        <a href="{{ route('admin.customers') }}" class="nav-link">
                             <i class="bx bx-user icon"></i>
                             <span class="link">Customer</span>
                         </a>
                     </li>
                     <li class="list">
-                        <a  class="nav-link">
+                        <a href="{{ route('account.logout') }}" class="nav-link">
                             <i class="bx bx-log-out icon"></i>
                             <span class="link">Logout</span>
                         </a>
