@@ -99,9 +99,9 @@
     <div class="container">
         <div class="nav-links">
             <a href="{{ route('account.dashboard') }}">Home</a> 
-            <a href="#profile">Profile</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <a href="{{ route('profile.index') }}">Profile</a>
+            <a href="{{ route('my.cart') }}">My Cart</a>
+            <a href="#contact">About Us</a>
         </div>
     </div>
     <div class="header-buttons">

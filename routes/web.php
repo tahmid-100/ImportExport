@@ -7,6 +7,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Middleware\AdminAuthenticate;
 use App\Http\Middleware\CheckRole;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,21 @@ Route::post('/account/process-register', [LoginController::class, 'processRegist
 Route::get('/account/dashboard', [DashboardController::class, 'index'])
 ->name('account.dashboard')
 ->middleware('role:customer');
+     Route::get('/account/profile', [ProfileController::class, 'index'])->name('profile.index')->middleware('role:customer');
+    Route::put('/account/profile/update-name', [ProfileController::class, 'updateName'])->name('profile.updateName')->middleware('role:customer');
+    Route::put('/account/profile/update-email', [ProfileController::class, 'updateEmail'])->name('profile.updateEmail')->middleware('role:customer');
+    Route::put('/account/profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePassword')->middleware('role:customer');
+    Route::put('/account/profile/update-phone', [ProfileController::class, 'updatePhone'])->name('profile.updatePhone')->middleware('role:customer');
+    Route::put('/account/profile/update-image', [ProfileController::class, 'updateImage'])->name('profile.updateImage')->middleware('role:customer');
+  
+
+    Route::get('/cart/add', [CartController::class, 'addToCart'])->name('cart.add')
+    ->middleware('role:customer');   //->->
+    Route::get('/account/cart', [CartController::class, 'index'])->name('my.cart')
+    ->middleware('role:customer');
+    Route::delete('/cart/delete/{cartItem}', [CartController::class, 'delete'])->name('cart.delete')
+    ->middleware('role:customer');
+   
 
 
 
