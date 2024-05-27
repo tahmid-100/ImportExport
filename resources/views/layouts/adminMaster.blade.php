@@ -165,7 +165,7 @@
             <div class="sidebar-content">
                 <ul class="lists">
                     <li class="list">
-                        <a  class="nav-link">
+                        <a href="{{ route('dashboard.index') }}"   class="nav-link">
                             <i class="bx bx-home-alt icon"></i>
                             <span class="link">Dashboard</span>
                         </a>
@@ -183,7 +183,7 @@
                         </a>
                     </li>
                     <li class="list">
-                        <a  class="nav-link">
+                        <a href="{{ route('orders.index') }}"  class="nav-link">
                             <i class="bx bx-bar-chart-alt-2 icon"></i>
                             <span class="link">Order</span>
                         </a>

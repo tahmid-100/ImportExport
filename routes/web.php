@@ -10,6 +10,8 @@ use App\Http\Middleware\CheckRole;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AdminDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +57,8 @@ Route::get('/account/dashboard', [DashboardController::class, 'index'])
     Route::delete('/cart/delete/{cartItem}', [CartController::class, 'delete'])->name('cart.delete')
     ->middleware('role:customer');
    
+Route::post('/cart/buy/{cartItem}', [OrderController::class, 'buy'])->name('cart.buy')
+->middleware('role:customer');
 
 
 
@@ -71,6 +75,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
   // In your routes file (web.php)
 Route::get('/customers', [AdminController::class, 'showCustomers'])->name('admin.customers');
 Route::delete('/customers/{id}', [AdminController::class, 'destroy'])->name('customers.destroy');
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard.index');
+
 
 });
 

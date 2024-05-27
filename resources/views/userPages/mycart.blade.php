@@ -1,5 +1,3 @@
-<!-- resources/views/mycart.blade.php -->
-
 @extends('layouts.userMaster')
 
 @section('title', 'My Cart')
@@ -29,12 +27,15 @@
                             <p><strong>Price:</strong> ${{ $cartItem->price }}</p>
                             <p><strong>Unit:</strong> {{ $cartItem->unit }}</p>
                             <div class="buttons">
-                            <form action="{{ route('cart.delete', ['cartItem' => $cartItem->id]) }}" method="POST">
-                            @csrf
-                         @method('DELETE')
-                          <button type="submit" class="delete-button">Delete Item</button>
-                           </form>
-                                <button class="buy-button" >Buy</button>
+                                <form action="{{ route('cart.delete', ['cartItem' => $cartItem->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="delete-button">Delete Item</button>
+                                </form>
+                                <form action="{{ route('cart.buy', ['cartItem' => $cartItem->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="buy-button">Buy</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -44,6 +45,12 @@
         @endif
     </div>
 </div>
+
+
+<style>
+/* Your existing styles */
+</style>
+
 
 <script>
     function deleteItem(cartItemId) {
